@@ -1,23 +1,58 @@
-// Mapear las letras al código
-const morseCodeMap = {
-    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.', 'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-    'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---', 'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-    'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--', 'Z': '--..',
-    '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', '8': '---..', '9': '----.'
+const audioElement = document.getElementById('audio');
+
+function reproducirSonido() {
+    audioElement.play();
+}
+
+function convertirTextoACodigo() {
+    // ... (código existente)
+    reproducirSonido();
+}
+
+function convertirCodigoATexto() {
+    // ... (código existente)
+    reproducirSonido();
+}
+
+const diccionarioMorse = {
+    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
+    'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
+    'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
+    'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
+    'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
+    'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
+    '3': '...--', '4': '....-', '5': '.....', '6': '-....',
+    '7': '--...', '8': '---..', '9': '----.'
 };
 
-// Convierte el texto a morse
-function convertToMorse() {
-    const inputText = document.getElementById('text').value.toUpperCase();
-    let morseCode = '';
+function convertirTextoACodigo() {
+    const entrada = document.getElementById('entrada').value.toUpperCase();
+    let resultado = '';
 
-    for (let char of inputText) {
-        if (char === ' ') {
-            morseCode += ' ';
-        } else if (morseCodeMap[char]) {
-            morseCode += morseCodeMap[char] + ' ';
+    for (let i = 0; i < entrada.length; i++) {
+        if (entrada[i] === ' ') {
+            resultado += ' ';
+        } else if (entrada[i] in diccionarioMorse) {
+            resultado += diccionarioMorse[entrada[i]] + ' ';
         }
     }
 
-    document.getElementById('morse').textContent = morseCode;
+    document.getElementById('resultado').textContent = resultado;
+}
+
+function convertirCodigoATexto() {
+    const entrada = document.getElementById('entrada').value;
+    const codigoMorseArray = entrada.split(' ');
+    let resultado = '';
+
+    for (let i = 0; i < codigoMorseArray.length; i++) {
+        for (let letra in diccionarioMorse) {
+            if (diccionarioMorse[letra] === codigoMorseArray[i]) {
+                resultado += letra;
+                break;
+            }
+        }
+    }
+
+    document.getElementById('resultado').textContent = resultado;
 }

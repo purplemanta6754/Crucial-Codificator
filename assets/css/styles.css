@@ -9,57 +9,73 @@ body {
     --sb-track-color: #ffffff;
     --sb-thumb-color: #4e4eda;
     --sb-size: 16px;
-  
-    scrollbar-color: var(--sb-thumb-color) 
-                     var(--sb-track-color);
-  }
-  
-  body::-webkit-scrollbar {
-    width: var(--sb-size) 
-  }
-  
-  body::-webkit-scrollbar-track {
+
+    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size)
+}
+
+body::-webkit-scrollbar-track {
     background: var(--sb-track-color);
-    border-radius: 10px;
-  }
-  
-  body::-webkit-scrollbar-thumb {
+}
+
+body::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 10px;
     border: 4px solid #ffffff;
-    }
+}
 
-h1, h2, h3 {
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(40, 40, 40);
+}
+
+h1,
+h2,
+h3 {
     font-family: 'Bricolage Grotesque';
 }
 
-h4, h5, h5, h6, p, textarea, button{
+h4,
+h5,
+h5,
+h6,
+p,
+textarea,
+button {
     font-family: 'Inter';
+}
+
+textarea {
+    width: 95%;
+    height: 50px;
+    max-width: 97vw;
+    max-height: 150px;
+    border-radius: 20px;
 }
 
 button {
     border-radius: 1rem;
     font-size: 16px;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 .title {
+    font-size: 50px;
     text-align: center;
-    margin: 100px;
-    margin-bottom: 50px;
-}
-
-#text {
-    font-family: 'Inter';
+    margin-top: 100px;
+    margin-bottom: 70px;
+    user-select: none;
 }
 
 span #morse {
-    text-align: center; 
+    text-align: center;
 }
 
-.result-container {
-    margin: 30px;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border-radius: 8px;
+.text-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 600px;
 }
