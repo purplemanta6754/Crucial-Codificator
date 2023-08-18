@@ -2,7 +2,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 body {
-    background: linear-gradient(to bottom right, #4e4eda 75%, #1111d8 100%);
+    background: linear-gradient(to bottom right, #4e4eda 25vw, #0202da 100vw);
     font-family: 'Inter';
     color: white;
 
@@ -31,6 +31,11 @@ body::-webkit-scrollbar-thumb:hover {
     background: rgb(40, 40, 40);
 }
 
+::selection {
+    color: white;
+    background-color: rgb(40, 40, 40);
+}
+
 h1,
 h2,
 h3 {
@@ -52,7 +57,7 @@ textarea {
     height: 50px;
     max-width: 97vw;
     max-height: 150px;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 button {
@@ -66,7 +71,7 @@ button {
     font-size: 50px;
     text-align: center;
     margin-top: 100px;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
     user-select: none;
 }
 
@@ -74,8 +79,27 @@ span #morse {
     text-align: center;
 }
 
-.text-container {
+.input {
+    resize: none;
+}
+
+.conv-container {
+    background-color: #ffffff17;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 50vw;
+    width: 90%;
+    margin-left: 22vw;
+    margin-bottom: 120px;
+}
+
+.help-container {
     margin-top: 50px;
     margin-bottom: 50px;
     width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
 }
