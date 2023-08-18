@@ -4,16 +4,6 @@ function reproducirSonido() {
     audioElement.play();
 }
 
-function convertirTextoACodigo() {
-    // ... (código existente)
-    reproducirSonido();
-}
-
-function convertirCodigoATexto() {
-    // ... (código existente)
-    reproducirSonido();
-}
-
 const diccionarioMorse = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
     'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
@@ -38,6 +28,8 @@ function convertirTextoACodigo() {
     }
 
     document.getElementById('resultado').textContent = resultado;
+
+    reproducirSonido();
 }
 
 function convertirCodigoATexto() {
@@ -55,4 +47,6 @@ function convertirCodigoATexto() {
     }
 
     document.getElementById('resultado').textContent = resultado;
+
+    reproducirSonido();
 }
