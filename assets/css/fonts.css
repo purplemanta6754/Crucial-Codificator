@@ -1,0 +1,43 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+/* Bricolage Grotesque */
+@font-face {
+    font-display: auto;
+    font-family: 'Bricolage Grotesque';
+    font-weight: 700;
+    font-style: normal;
+    src: url(../fonts/Bricolage-Grotesque/BricolageGrotesque-Bold.ttf);
+}
+
+@font-face {
+    font-display: auto;
+    font-family: 'Bricolage Grotesque';
+    font-weight: 800;
+    font-style: normal;
+    src: url(../fonts/Bricolage-Grotesque/BricolageGrotesque-ExtraBold.ttf);
+}
+
+/* Inter */
+@font-face {
+    font-display: auto;
+    font-family: 'Inter';
+    font-weight: 300;
+    font-style: normal;
+    src: url(../fonts/Inter/Inter-Light.ttf);
+}
+
+@font-face {
+    font-display: auto;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-style: normal;
+    src: url(../fonts/Inter/Inter-Regular.ttf);
+}
+
+@font-face {
+    font-display: auto;
+    font-family: 'Inter';
+    font-weight: 700;
+    font-style: normal;
+    src: url(../fonts/Inter/Inter-Bold.ttf);
+}
