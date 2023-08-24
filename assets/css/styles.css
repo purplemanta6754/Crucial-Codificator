@@ -1,38 +1,42 @@
 @import url(fonts.css);
 
-body {
-    background-color: #1a1ada;
-    font-family: 'Inter';
-    color: white;
+:root {
+    --primary-color: #000;
+    --accent-color: #4e4eda;
+    --bg-color: #ccc;
 
-    --sb-track-color: #ffffff;
-    --sb-thumb-color: #4e4eda;
     --sb-size: 16px;
+}
 
-    scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+body {
+    margin: 0px;
+    background-color: var(--bg-color);
+    font-family: 'Inter';
+    color: #000;
 }
 
 body::-webkit-scrollbar {
+    margin-top: 70px;
     width: var(--sb-size)
 }
 
 body::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
+    background-color: #e8e8e8;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
+    background-color: #282828;
     border-radius: 10px;
-    border: 4px solid #ffffff;
+    border: 4px solid #e8e8e8;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-    background: rgb(40, 40, 40);
+    background-color: #4e4eda;
 }
 
 ::selection {
-    color: white;
-    background-color: rgb(40, 40, 40);
+    color: #fff;
+    background-color: #282828;
 }
 
 h1,
@@ -52,20 +56,72 @@ textarea {
     font-family: 'Inter';
 }
 
-button {
-    border-radius: 1rem;
-    font-size: 16px;
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(1.5rem);
+    background-color: #edededde;
+    color: #000000;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 200px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+    color: #000000;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.btn {
+    user-select: none;
     margin-top: 20px;
     margin-right: 10px;
-    user-select: none;
+    font-size: 16px;
+    border: #000000;
+    border-radius: 1rem;
+}
+
+.btn:hover {
+    background-color: #4e4eda;
+    color: #fff;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+.result {
+    background-color: #ffffff00;
+    color: #fff;
 }
 
 .title {
-    margin-top: 100px;
-    margin-bottom: 30px;
-    font-size: 50px;
-    text-align: center;
     user-select: none;
+    margin-top: 125px;
+    margin-bottom: 30px;
+    color: #000;
+    font-size: 50px;
+    font-weight: 800;
+    text-align: center;
 }
 
 .input {
@@ -80,35 +136,34 @@ button {
 
 .conv-container {
     display: block;
+    margin-left: 22vw;
+    margin-bottom: 120px;
     background-color: #ffffff17;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 12px #0000007a;
     text-align: center;
     max-width: 50vw;
     width: 90%;
-    margin-left: 22vw;
-    margin-bottom: 120px;
-}
-
-.help-container {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 600px;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
 }
 
 .result-label {
     font-weight: bold;
 }
 
-.faq-title {
+.faq-header {
+    user-select: none;
     margin-top: 100px;
     margin-bottom: 70px;
     font-size: 40px;
-    text-decoration: underline 3px;
     text-align: center;
-    user-select: none;
+}
+
+.faq-article {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 23vw;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
 }
