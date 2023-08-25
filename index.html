@@ -11,27 +11,41 @@
 </head>
 
 <body class="animate__animated animate__fadeIn">
-    <main>
-        <nav class="navbar">
-            <div class="logo">
-                <img src="assets/img/logo.png" alt="Crucial Codificator">
-            </div>
-        </nav>
+    <noscript>
+        <h1>
+            <i class="bi bi-exclamation-triangle"></i>
+            Tu navegador no admite o no es compatible con JavaScript
+        </h1>
+        <p>Verifica que este navegador tenga habilitado JavaScript y vuelve a intentarlo.</p>
+    </noscript>
 
+    <nav class="navbar">
+        <div class="logo">
+            <img src="assets/img/logo.png" alt="Crucial Codificator">
+        </div>
+    </nav>
+
+    <main>
         <h1 class="title">
             <i class="bi bi-arrow-left-right"></i> Conversor de Código Morse
         </h1>
         <div class="conv-container">
             <textarea required autofocus id="entrada" class="input"
                 placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
-            <br>
-            <button class="btn" onclick="convertirTextoACodigo()">Convertir a Morse</button>
-            <button class="btn" onclick="convertirCodigoATexto()">Convertir a Texto</button>
-            <button class="btn" disabled><i class="bi bi-volume-up-fill"></i></button>
-            <button class="btn" disabled><i class="bi bi-phone-vibrate-fill"></i></button>  
-            <p class="result-label">Tu resultado:</p>
-            <div id="resultado" class="result" title="Clic para copiar"></div>
-            <button id="copyButton" class="btn" title="Copiar al portapapeles">Copiar resultado</button>
+
+            <div class="btn-container">
+                <button class="btn" onclick="convertirTextoACodigo()">Convertir a Morse</button>
+                <button class="btn" onclick="convertirCodigoATexto()">Convertir a Texto</button>
+                <button class="btn" disabled><i class="bi bi-volume-up"></i></button>
+                <button class="btn" disabled><i class="bi bi-phone-vibrate"></i></button>
+                <br>
+                <button id="copyButton" class="btn" title="Copiar resultado al portapapeles">Copiar resultado</button>
+            </div>
+
+            <h3 class="result-label">Tu resultado</h3>
+
+            <p id="resultado" class="result"></p>
+
         </div>
     </main>
 
@@ -41,9 +55,7 @@
         </h1>
 
         <article class="faq-article">
-            <h2>
-                <i class="bi bi-card-text"></i> ¿Cómo convertir texto a código morse?
-            </h2>
+            <h2>¿Cómo convertir texto a código morse?</h2>
 
             <p>Ingresa en el área de arriba el texto que desear convertir a código morse y haz click en el botón
                 "Convertir
@@ -51,9 +63,7 @@
         </article>
 
         <article class="faq-article">
-            <h2>
-                <i class="bi bi-question-lg"></i> ¿Qué es el código morse?
-            </h2>
+            <h2>¿Qué es el código morse?</h2>
 
             <p>Desarrollado en 1835 por el pintor e inventor Samuel Finley Breese, es un sistema de representación de
                 letras y números mediante señales emitidas de forma intermitente. Hoy en día el código morse se utiliza
