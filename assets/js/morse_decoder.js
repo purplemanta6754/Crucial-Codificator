@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         copyButton.innerHTML = '¡Copiado!';
         setTimeout(function () {
-            copyButton.innerHTML = 'Copiar Valor';
+            copyButton.innerHTML = 'Copiar resultado';
         }, 2000);
     });
 });
