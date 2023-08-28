@@ -1,3 +1,5 @@
+// Codificación de texto a morse y morse a texto
+
 const diccionarioMorse = {
     'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
     'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
@@ -13,7 +15,7 @@ const diccionarioMorse = {
     '-': '-....-', '_': '..--.-', '$': '...-..-', '@': '.--.-.',
     'Á': '.--.-', 'É': '..-..', 'Í': '..', 'Ó': '---.', 'Ú': '..--',
     'Ñ': '--.--', 'Ü': '..--',
-    ' ': '/'
+    '/': '/'
 };
 
 
@@ -76,3 +78,46 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 2000);
     });
 });
+
+// Reproducción de código morse
+
+const dotDuration = 200; // Duración en milisegundos para el punto
+const dashDuration = 500; // Duración en milisegundos para el guion
+const spaceDuration = 200; // Duración en milisegundos para el espacio entre caracteres
+const charSpaceDuration = 500; // Duración en milisegundos para el espacio entre caracteres
+
+function reproducirSonido() {
+    const entrada = document.getElementById('entrada').value.toUpperCase();
+
+    for (let i = 0; i < entrada.length; i++) {
+        const caracter = entrada[i];
+        if (caracter === '.') {
+            reproducirPunto();
+        } else if (caracter === '-') {
+            reproducirGuion();
+        } else if (caracter === ' ') {
+            pausa(spaceDuration);
+        }
+        if (i < entrada.length - 1 && entrada[i + 1] !== ' ') {
+            pausa(charSpaceDuration);
+        }
+    }
+}
+
+function reproducirPunto() {
+    const soundDot = document.getElementById('soundDot');
+    soundDot.currentTime = 0;
+    soundDot.play();
+    pausa(dotDuration);
+}
+
+function reproducirGuion() {
+    const soundDash = document.getElementById('soundDash');
+    soundDash.currentTime = 0;
+    soundDash.play();
+    pausa(dashDuration);
+}
+
+function pausa(duration) {
+    return new Promise(resolve => setTimeout(resolve, duration));
+}
