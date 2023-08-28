@@ -19,10 +19,14 @@
         <p>Verifica que este navegador tenga habilitado JavaScript y vuelve a intentarlo.</p>
     </noscript>
 
-    <nav class="navbar">
+    <nav class="navbar" id="nav">
         <div class="logo">
-            <img src="assets/img/logo.png" alt="Crucial Codificator">
+            <img class="logo" src="assets/img/logo.png" alt="Crucial Codificator">
         </div>
+        <a href="#dictionary" title="Diccionario Morse">Diccionario Morse</a>
+        <a href="#faq" title="Preguntas frecuentes">Preguntas frecuentes</a>
+        <button title="Cambiar tema">🎨</button>
+        <a href="javascript:void(0);" class="nav-menu" onclick="desplegarMenu()"><i class="bi bi-three-dots"></i></a>
     </nav>
 
     <main>
@@ -34,10 +38,12 @@
                 placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
 
             <div class="btn-container">
-                <button class="btn" onclick="convertirTextoACodigo()" title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
-                <button class="btn" onclick="convertirCodigoATexto()" title="Convertir el Morse introducido a texto">Convertir a Texto</button>
-                <button class="btn" disabled><i class="bi bi-volume-up"></i></button>
-                <button class="btn" disabled><i class="bi bi-phone-vibrate"></i></button>
+                <button class="btn" onclick="convertirTextoACodigo()"
+                    title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
+                <button class="btn" onclick="convertirCodigoATexto()"
+                    title="Convertir el Morse introducido a texto">Convertir a Texto</button>
+                <button class="btn" id="playSoundButton" onclick="reproducirSonido()" title="Reproducir sonido"><i
+                        class="bi bi-volume-up"></i></button>
                 <br>
                 <button id="copyButton" class="btn" title="Copiar resultado a tu portapapeles">Copiar resultado</button>
             </div>
@@ -49,127 +55,171 @@
         </div>
     </main>
 
-    <section>
-        <h1 class="faq-header">Diccionario Morse (Universal)</h1>
+    <section id="dictionary">
+        <h1 class="section-title">
+            <i class="bi bi-table"></i> Diccionario Morse (Universal)
+        </h1>
+
+        <article>
+            <table>
+                <tr>
+                    <th>Caracter</th>
+                    <th>Código Morse</th>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>.-</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>-...</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>-.-.</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>-..</td>
+                </tr>
+                <tr>
+                    <td>E</td>
+                    <td>.</td>
+                </tr>
+                <tr>
+                    <td>F</td>
+                    <td>..-.</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>--.</td>
+                </tr>
+                <tr>
+                    <td>H</td>
+                    <td>....</td>
+                </tr>
+                <tr>
+                    <td>I</td>
+                    <td>..</td>
+                </tr>
+                <tr>
+                    <td>J</td>
+                    <td>.---</td>
+                </tr>
+                <tr>
+                    <td>K</td>
+                    <td>-.-</td>
+                </tr>
+                <tr>
+                    <td>L</td>
+                    <td>.-..</td>
+                </tr>
+                <tr>
+                    <td>M</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td>N</td>
+                    <td>-.</td>
+                </tr>
+                <tr>
+                    <td>O</td>
+                    <td>---</td>
+                </tr>
+                <tr>
+                    <td>P</td>
+                    <td>.--.</td>
+                </tr>
+                <tr>
+                    <td>Q</td>
+                    <td>--.-</td>
+                </tr>
+                <tr>
+                    <td>R</td>
+                    <td>.-.</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>T</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>U</td>
+                    <td>..-</td>
+                </tr>
+                <tr>
+                    <td>V</td>
+                    <td>...-</td>
+                </tr>
+                <tr>
+                    <td>W</td>
+                    <td>.--</td>
+                </tr>
+                <tr>
+                    <td>X</td>
+                    <td>-..-</td>
+                </tr>
+                <tr>
+                    <td>Y</td>
+                    <td>-.--</td>
+                </tr>
+                <tr>
+                    <td>Z</td>
+                    <td>--..</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>----</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>.---</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>..---</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>...--</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>....-</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>.....</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>-....</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>--...</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>---..</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>----.</td>
+                </tr>
+            </table>
+        </article>
     </section>
 
-    <table>
-        <tr>
-            <th>Letra&nbsp;</th>
-            <th>Código Morse</th>
-        </tr>
-        <tr>
-            <td>A</td>
-            <td>.-</td>
-        </tr>
-        <tr>
-            <td>B</td>
-            <td>-...</td>
-        </tr>
-        <tr>
-            <td>C</td>
-            <td>-.-.</td>
-        </tr>
-        <tr>
-            <td>D</td>
-            <td>-..</td>
-        </tr>
-        <tr>
-            <td>E</td>
-            <td>.</td>
-        </tr>
-        <tr>
-            <td>F</td>
-            <td>..-.</td>
-        </tr>
-        <tr>
-            <td>G</td>
-            <td>--.</td>
-        </tr>
-        <tr>
-            <td>H</td>
-            <td>....</td>
-        </tr>
-        <tr>
-            <td>I</td>
-            <td>..</td>
-        </tr>
-        <tr>
-            <td>J</td>
-            <td>.---</td>
-        </tr>
-        <tr>
-            <td>K</td>
-            <td>-.-</td>
-        </tr>
-        <tr>
-            <td>L</td>
-            <td>.-..</td>
-        </tr>
-        <tr>
-            <td>M</td>
-            <td>--</td>
-        </tr>
-        <tr>
-            <td>N</td>
-            <td>-.</td>
-        </tr>
-        <tr>
-            <td>O</td>
-            <td>---</td>
-        </tr>
-        <tr>
-            <td>P</td>
-            <td>.--.</td>
-        </tr>
-        <tr>
-            <td>Q</td>
-            <td>--.-</td>
-        </tr>
-        <tr>
-            <td>R</td>
-            <td>.-.</td>
-        </tr>
-        <tr>
-            <td>S</td>
-            <td>...</td>
-        </tr>
-        <tr>
-            <td>T</td>
-            <td>-</td>
-        </tr>
-        <tr>
-            <td>U</td>
-            <td>..-</td>
-        </tr>
-        <tr>
-            <td>V</td>
-            <td>...-</td>
-        </tr>
-        <tr>
-            <td>W</td>
-            <td>.--</td>
-        </tr>
-        <tr>
-            <td>X</td>
-            <td>-..-</td>
-        </tr>
-        <tr>
-            <td>Y</td>
-            <td>-.--</td>
-        </tr>
-        <tr>
-            <td>Z</td>
-            <td>--..</td>
-        </tr>
-    </table>
-
-    <section>
-        <h1 class="faq-header">
+    <section id="faq">
+        <h1 class="section-title">
             <i class="bi bi-patch-question"></i> Preguntas frecuentes
         </h1>
 
-        <article class="faq-article">
+        <article class="section-article">
             <h2>¿Cómo convertir texto a código morse?</h2>
 
             <p>Ingresa en el área de arriba el texto que desear convertir a código morse y haz click en el botón
@@ -177,16 +227,24 @@
                 a Morse". De forma instantánea se codificará tu texto a código morse.</p>
         </article>
 
-        <article class="faq-article">
+        <article class="section-article">
             <h2>¿Qué es el código morse?</h2>
 
             <p>Desarrollado en 1835 por el pintor e inventor Samuel Finley Breese, es un sistema de representación de
-                letras y números mediante señales emitidas de forma intermitente. Hoy en día el código morse se utiliza
-                por personas con discapacidades (como parálisis o accidentes cerebrovasculares).</p>
+                letras y números mediante señales emitidas de forma intermitente.
+        </article>
+
+        <article class="section-article">
+            <h2>¿Por qué es importante el código morse?</h2>
+
+            <p>Hoy en día el código morse se utiliza por personas con discapacidades (como parálisis o accidentes
+                cerebrovasculares), así como también por estaciones de radio.</p>
         </article>
 
     </section>
 
+    <audio id="soundDot" src="assets/snds/soundDot.mp3"></audio>
+    <audio id="soundDash" src="assets/snds/soundDash.mp3"></audio>
 
     <script src="assets/js/script.js"></script>
     <script src="assets/js/morse_decoder.js"></script>
