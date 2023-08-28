@@ -1,4 +1,4 @@
-# morse-translator
+# crucial-codificator
 
 Codifica un mensaje a código Morse o texto según desees!
 
