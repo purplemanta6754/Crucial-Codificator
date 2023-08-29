@@ -16,15 +16,9 @@
 
     <!-- CSS
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/skeleton.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-
-    <!-- FUENTE
-  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        type="text/css">
+    <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
 
     <!-- Favicon
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
@@ -45,30 +39,36 @@
         <div class="logo">
             <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Crucial Codificator"></a>
         </div>
-        <a class="navbar-btn" href="#dictionary" title="Diccionario Morse">Dicc. Morse</a>
+        <a class="navbar-btn" href="#dictionary" title="Diccionario Morse">Diccionario Morse</a>
         <a class="navbar-btn" href="#faq" title="Preguntas frecuentes">FAQ</a>
-        <a class="navbar-btn" title="Cambiar tema">🎨</a>
-        <a class="navbar-btn" href="javascript:void(0);" class="nav-menu" onclick="desplegarMenu()"><i
+        <a class="navbar-btn" href="javascript:void(0);" onclick="abrirTelegrafo()" title="Telegrafo Virtual">Telegrafo
+            Virtual</a>
+        <a class="navbar-btn" href="javascript:void(0);" onclick="establecerTema()" title="Cambiar tema"><i
+                class="bi bi-palette2"></i></a>
+        <a class="navbar-btn nav-menu" href="javascript:void(0);" onclick="desplegarMenu()"><i
                 class="bi bi-three-dots"></i></a>
     </nav>
 
     <main>
+
         <h1 class="title">
             <i class="bi bi-arrow-left-right"></i> Conversor de Código Morse
         </h1>
-        <div class="container conv-container">
-            <textarea required autofocus id="entrada" class="input"
-                placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
 
-            <div class="btn-container">
-                <button class="btn" onclick="convertirTextoACodigo()"
-                    title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
-                <button class="btn" onclick="convertirCodigoATexto()"
-                    title="Convertir el Morse introducido a texto">Convertir a Texto</button>
-                <button disabled class="btn" id="playSoundButton" onclick="reproducirSonido()" title="Reproducir sonido"><i
-                        class="bi bi-volume-up"></i></button>
-                <br>
-                <button id="copyButton" class="btn" title="Copiar resultado a tu portapapeles">Copiar resultado</button>
+        <div class="container modal-container">
+            <div>
+                <textarea required autofocus id="entrada" class="input"
+                    placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
+                <div class="btn-container">
+                    <button class="btn" onclick="convertirTextoACodigo()"
+                        title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
+                    <button class="btn" onclick="convertirCodigoATexto()"
+                        title="Convertir el Morse introducido a texto">Convertir a Texto</button>
+                    <button disabled class="btn" id="playSoundButton" onclick="reproducirSonido()"
+                        title="Reproducir sonido"><i class="bi bi-volume-up"></i></button>
+                    <button id="copyButton" class="btn" title="Copiar resultado a tu portapapeles">Copiar
+                        resultado</button>
+                </div>
             </div>
 
             <h3 class="result-label">Tu resultado</h3>
@@ -79,12 +79,12 @@
     </main>
 
     <section id="dictionary">
-        <h1 class="section-title">
+        <h2 class="section-title">
             <i class="bi bi-table"></i> Diccionario Morse (Universal)
-        </h1>
+        </h2>
 
         <article>
-            <table>
+            <table class="container">
                 <tr>
                     <th>Caracter</th>
                     <th>Código Morse</th>
@@ -265,18 +265,6 @@
         </article>
 
     </section>
-
-    <footer>
-        <ul>
-            <li>
-                <strong>Crucial Codificator</strong>
-            </li>
-            <li>Enlace A</li>
-            <li>Enlace B</li>
-            <li>Enlace C</li>
-            <li>Enlace D</li>
-        </ul>
-    </footer>
 
     <audio type="audio/mp3" id="soundDot" src="assets/snds/soundDot.mp3"></audio>
     <audio type="audio/mp3" id="soundDash" src="assets/snds/soundDash.mp3"></audio>
