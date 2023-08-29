@@ -10,25 +10,6 @@ body {
     margin: 0;
 }
 
-h1,
-h2,
-h3,
-th {
-    font-family: 'Bricolage Grotesque';
-}
-
-h4,
-h5,
-h5,
-h6,
-p,
-button,
-input,
-textarea,
-td {
-    font-family: 'Inter';
-}
-
 .telegraph {
     background-color: #fff;
     border: 2px solid #333;
@@ -55,7 +36,6 @@ textarea {
 }
 
 button {
-    font-family: 'Inter', sans-serif;
     background-color: #333;
     color: #fff;
     border: none;

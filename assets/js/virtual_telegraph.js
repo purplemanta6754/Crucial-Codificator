@@ -1,46 +1,60 @@
-const key = document.querySelector('.key');
+const key = document.getElementById('key');
 const messageInput = document.getElementById('message');
-const sendButton = document.getElementById('sendButton');
+const playButton = document.getElementById('playButton');
+const dotButton = document.getElementById('dotButton');
+const dashButton = document.getElementById('dashButton');
+const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-let isPressed = false;
+let currentSymbol = '.'; // Por defecto, iniciamos con un punto
 
-key.addEventListener('mousedown', () => {
-    isPressed = true;
-    sendMessage();
+dotButton.addEventListener('click', () => {
+    currentSymbol = '.';
+    messageInput.value += currentSymbol;
+    playTelegraphSound(currentSymbol);
 });
 
-key.addEventListener('mouseup', () => {
-    isPressed = false;
+dashButton.addEventListener('click', () => {
+    currentSymbol = '-';
+    messageInput.value += currentSymbol;
+    playTelegraphSound(currentSymbol);
 });
 
-sendButton.addEventListener('click', sendMessage);
+playButton.addEventListener('click', () => {
+    const morseCode = messageInput.value;
+    playMorseCodeSound(morseCode);
+});
 
-function sendMessage() {
-    const message = messageInput.value;
-    const morseCode = convertToMorseCode(message);
-    if (morseCode) {
-        simulateMorseCode(morseCode);
+messageInput.addEventListener('input', () => {
+    const morseCode = messageInput.value;
+    playMorseCodeSound(morseCode);
+});
+
+function playTelegraphSound(symbol) {
+    const oscillator = audioContext.createOscillator();
+    oscillator.type = 'sine';
+   
+    if (symbol === '.') {
+        oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+    } else if (symbol === '-') {
+        oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
     }
+   
+    oscillator.connect(audioContext.destination);
+   
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.1);
 }
 
-function convertToMorseCode(text) {
-    // Para simplificar, nos limitaremos a devolver un patrón básico
-    return ".- -... -.-.";
-}
-
-function simulateMorseCode(code) {
-    const timeUnit = 300; // Tiempo en milisegundos para una unidad de tiempo básica
-    const delay = timeUnit * 3; // Retraso entre caracteres
-    
+function playMorseCodeSound(code) {
+    const timeUnit = 600; // Tiempo en milisegundos para una unidad de tiempo básica
+   
     code.split('').forEach((char, index) => {
         setTimeout(() => {
             if (char === '.') {
-                key.style.backgroundColor = '#999';
-                setTimeout(() => key.style.backgroundColor = '#333', timeUnit);
+                playTelegraphSound('.');
             } else if (char === '-') {
-                key.style.backgroundColor = '#999';
-                setTimeout(() => key.style.backgroundColor = '#333', timeUnit * 3);
+                playTelegraphSound('-');
             }
-        }, index * delay);
+        }, index * timeUnit);
     });
 }
