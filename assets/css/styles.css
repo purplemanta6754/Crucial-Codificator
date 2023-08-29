@@ -5,10 +5,37 @@
 :root {
     --primary-color: #000;
     --secondary-color: #fff;
-    --accent-color: #3264C8;
+    --accent-color: #5564eb;
 
     --bgcolor: #EAF4F4;
-    --navbar-color: #ccc;
+    --navbar-color: #eee;
+
+    /* Rojo */
+    --light-coral: #ef6f6cff;
+    
+    /* Azul */
+    --majorelle-blue: #5564ebff;
+    
+    /* Naranja */
+    --ut-orange: #ff8500ff;
+    
+    /* Amarillo */
+    --mikado-yellow: #ffc300ff;
+    
+    /* Verde */
+    --viridian: #007f5fff;
+    
+    /* Violeta */
+    --tekhelet: #5A189Aff;
+    --amethyst: #9d4eddff;
+
+    /* Café */
+    --almond: #eae0d5ff;
+    --walnut-brown: #5e503fff;
+    
+    /* Negro */
+    --gunmetal: #22333bff;
+    --charcoal: #2e4057ff;
 }
 
 body {
@@ -128,10 +155,10 @@ th:first-child {
 }
 
 .btn {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
     -webkit-user-select: none;
     user-select: none;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
     border: none;
     transition: 0.3s;
 }
@@ -168,11 +195,12 @@ th:first-child {
 }
 
 .title {
-    color: var(--primary-color);
     -webkit-user-select: none;
     user-select: none;
-    font-weight: 800;
+    color: var(--primary-color);
     text-align: center;
+    font-weight: 800;
+    margin-bottom: 40px;
 }
 
 .input {
@@ -207,6 +235,6 @@ th:first-child {
     -webkit-user-select: none;
     user-select: none;
     margin-top: 100px;
-    margin-bottom: 70px;
+    margin-bottom: 40px;
     text-align: center;
 }
