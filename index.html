@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-<html lang="es">
+<html type="text/html" lang="es">
 
 <head>
+
+    <!-- Necesidades básicas de la página
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crucial Codificator | Conversor de Código Morse</title>
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Metas móviles específicos
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/skeleton.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- FUENTE
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link href="assets/css/fonts.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Favicon
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
 </head>
 
 <body class="animate__animated animate__fadeIn">
@@ -21,19 +43,20 @@
 
     <nav class="navbar" id="nav">
         <div class="logo">
-            <img class="logo" src="assets/img/logo.png" alt="Crucial Codificator">
+            <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Crucial Codificator"></a>
         </div>
-        <a href="#dictionary" title="Diccionario Morse">Diccionario Morse</a>
-        <a href="#faq" title="Preguntas frecuentes">Preguntas frecuentes</a>
-        <button title="Cambiar tema">🎨</button>
-        <a href="javascript:void(0);" class="nav-menu" onclick="desplegarMenu()"><i class="bi bi-three-dots"></i></a>
+        <a class="navbar-btn" href="#dictionary" title="Diccionario Morse">Dicc. Morse</a>
+        <a class="navbar-btn" href="#faq" title="Preguntas frecuentes">FAQ</a>
+        <a class="navbar-btn" title="Cambiar tema">🎨</a>
+        <a class="navbar-btn" href="javascript:void(0);" class="nav-menu" onclick="desplegarMenu()"><i
+                class="bi bi-three-dots"></i></a>
     </nav>
 
     <main>
         <h1 class="title">
             <i class="bi bi-arrow-left-right"></i> Conversor de Código Morse
         </h1>
-        <div class="conv-container">
+        <div class="container conv-container">
             <textarea required autofocus id="entrada" class="input"
                 placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
 
@@ -42,7 +65,7 @@
                     title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
                 <button class="btn" onclick="convertirCodigoATexto()"
                     title="Convertir el Morse introducido a texto">Convertir a Texto</button>
-                <button class="btn" id="playSoundButton" onclick="reproducirSonido()" title="Reproducir sonido"><i
+                <button disabled class="btn" id="playSoundButton" onclick="reproducirSonido()" title="Reproducir sonido"><i
                         class="bi bi-volume-up"></i></button>
                 <br>
                 <button id="copyButton" class="btn" title="Copiar resultado a tu portapapeles">Copiar resultado</button>
@@ -219,23 +242,23 @@
             <i class="bi bi-patch-question"></i> Preguntas frecuentes
         </h1>
 
-        <article class="section-article">
-            <h2>¿Cómo convertir texto a código morse?</h2>
+        <article class="container">
+            <h3>¿Cómo convertir texto a código morse?</h3>
 
             <p>Ingresa en el área de arriba el texto que desear convertir a código morse y haz click en el botón
                 "Convertir
                 a Morse". De forma instantánea se codificará tu texto a código morse.</p>
         </article>
 
-        <article class="section-article">
-            <h2>¿Qué es el código morse?</h2>
+        <article class="container">
+            <h3>¿Qué es el código morse?</h3>
 
             <p>Desarrollado en 1835 por el pintor e inventor Samuel Finley Breese, es un sistema de representación de
                 letras y números mediante señales emitidas de forma intermitente.
         </article>
 
-        <article class="section-article">
-            <h2>¿Por qué es importante el código morse?</h2>
+        <article class="container">
+            <h3>¿Por qué es importante el código morse?</h3>
 
             <p>Hoy en día el código morse se utiliza por personas con discapacidades (como parálisis o accidentes
                 cerebrovasculares), así como también por estaciones de radio.</p>
@@ -243,11 +266,23 @@
 
     </section>
 
-    <audio id="soundDot" src="assets/snds/soundDot.mp3"></audio>
-    <audio id="soundDash" src="assets/snds/soundDash.mp3"></audio>
+    <footer>
+        <ul>
+            <li>
+                <strong>Crucial Codificator</strong>
+            </li>
+            <li>Enlace A</li>
+            <li>Enlace B</li>
+            <li>Enlace C</li>
+            <li>Enlace D</li>
+        </ul>
+    </footer>
 
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/morse_decoder.js"></script>
+    <audio type="audio/mp3" id="soundDot" src="assets/snds/soundDot.mp3"></audio>
+    <audio type="audio/mp3" id="soundDash" src="assets/snds/soundDash.mp3"></audio>
+
+    <script type="text/javascript" src="assets/js/script.js"></script>
+    <script type="text/javascript" src="assets/js/morse_decoder.js"></script>
 </body>
 
 </html>
