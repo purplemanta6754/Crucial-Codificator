@@ -14,7 +14,7 @@ body {
     background-color: #fff;
     border: 2px solid var(--accent-color);
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
@@ -29,12 +29,14 @@ body {
 
 textarea {
     resize: vertical;
-    width: 80%;
-    max-height: 270px;
+    width: 95%;
+    height: 50px;
+    min-height: 50px;
+    max-width: 95%;
+    max-height: 265px;
     padding: 10px;
     margin: 10px auto;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 button {
