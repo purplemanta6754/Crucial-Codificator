@@ -1,19 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html type="text/html" lang="es">
+
 <head>
+
+    <!-- Necesidades básicas de la página
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegrafo Virtual</title>
+    <title>Telégrafo Virtual</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Metas móviles específicos
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="../assets/css/telegraph.css">
+
+    <!-- Favicon
+  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
 </head>
-<body>
+
+<body class="animate__animated animate__fadeIn">
+
     <div class="telegraph">
         <div class="key" id="key"></div>
-        <textarea id="message" placeholder="Ingresa tu mensaje en texto"></textarea>
+        <textarea autofocus required id="message" placeholder="Ingresa tu mensaje en texto"></textarea>
         <button id="playButton">Reproducir</button>
         <button id="dotButton">Punto</button>
         <button id="dashButton">Línea</button>
     </div>
     <script src="../assets/js/virtual_telegraph.js"></script>
 </body>
+
 </html>
