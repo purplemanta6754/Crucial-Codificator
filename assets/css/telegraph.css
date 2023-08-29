@@ -1,4 +1,4 @@
-@import url(fonts.css);
+@import url(styles.css);
 
 body {
     font-family: 'Inter', sans-serif;
@@ -12,7 +12,7 @@ body {
 
 .telegraph {
     background-color: #fff;
-    border: 2px solid #333;
+    border: 2px solid var(--accent-color);
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -20,7 +20,7 @@ body {
 }
 
 .key {
-    background-color: #333;
+    background-color: var(--accent-color);
     width: 100px;
     height: 40px;
     margin: 10px auto;
@@ -28,7 +28,9 @@ body {
 }
 
 textarea {
+    resize: vertical;
     width: 80%;
+    max-height: 270px;
     padding: 10px;
     margin: 10px auto;
     border: 1px solid #ccc;
@@ -36,14 +38,11 @@ textarea {
 }
 
 button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 3px;
-    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #555;
+    background-color: #333;
+    color: #fff;
 }
