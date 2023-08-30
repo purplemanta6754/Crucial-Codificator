@@ -41,11 +41,6 @@ window.addEventListener('load', () => {
     updateKey();
 });
 
-// Restaurar la clave y el mensaje al hacer clic en el botón 'Restablecer'
-resetButton.addEventListener('click', () => {
-    updateKey();
-});
-
 // Función para reproducir sonidos pregrabados de puntos y rayas
 function playTelegraphSound(symbol) {
     const soundPath = symbol === '.' ? '../assets/snds/soundDot.mp3' : '../assets/snds/soundDash.mp3';
@@ -84,18 +79,6 @@ function playMorseCodeSound(code) {
     playNextSound(0);
 }
 
-let currentOscillator = null;
-
-function stopSound() {
-    if (currentOscillator) {
-        currentOscillator.stop();
-        currentOscillator.disconnect();
-        currentOscillator = null;
-    }
+function recargarPagina () {
+    location.reload()
 }
-
-const stopButton = document.getElementById('stopButton');
-
-stopButton.addEventListener('click', () => {
-    stopSound();
-});
