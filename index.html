@@ -7,8 +7,8 @@
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
     <meta charset="UTF-8">
     <title>Crucial Codificator | Conversor de Código Morse</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Codifica texto a morse y viceversa de forma instantánea.">
+    <meta name="author" content="Crucial Software">
 
     <!-- Metas móviles específicos
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
@@ -39,14 +39,19 @@
         <div class="logo">
             <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Crucial Codificator"></a>
         </div>
-        <a class="navbar-btn" href="#dictionary" title="Diccionario Morse">Diccionario Morse</a>
-        <a class="navbar-btn" href="#faq" title="Preguntas frecuentes">FAQ</a>
-        <a class="navbar-btn" href="javascript:void(0);" onclick="abrirTelegrafo()" title="Telegrafo Virtual">Telegrafo
+        <a class="navbar-btn n-btn-desktop" href="#diccionario-morse" title="Diccionario Morse">Diccionario Morse</a>
+        <a class="navbar-btn n-btn-desktop" href="#faq" title="Preguntas frecuentes">FAQ</a>
+        <a class="navbar-btn n-btn-desktop" href="javascript:void(0);" onclick="abrirTelegrafo()"
+            title="Telegrafo Virtual">Telegrafo
             Virtual</a>
-        <a class="navbar-btn" href="javascript:void(0);" onclick="establecerTema()" title="Cambiar tema"><i
+        <a class="navbar-btn n-btn-responsive" href="#diccionario-morse" title="Diccionario Morse"><i
+                class="bi bi-table"></i></a>
+        <a class="navbar-btn n-btn-responsive" href="#faq" title="Preguntas frecuentes"><i
+                class="bi bi-patch-question"></i></a>
+        <a class="navbar-btn n-btn-responsive" href="javascript:void(0);" onclick="abrirTelegrafo()"
+            title="Telegrafo Virtual"><i class="bi bi-soundwave"></i></a>
+        <a class="navbar-btn" href="javascript:void(0);" id="openModalLink" title="Cambiar tema"><i
                 class="bi bi-palette2"></i></a>
-        <a class="navbar-btn nav-menu" href="javascript:void(0);" onclick="desplegarMenu()"><i
-                class="bi bi-three-dots"></i></a>
     </nav>
 
     <main>
@@ -60,13 +65,12 @@
                 <textarea required autofocus id="entrada" class="input"
                     placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
                 <div class="btn-container">
-                    <button class="btn" onclick="convertirTextoACodigo()"
+                    <button class="btn morse-btn" onclick="convertirTextoACodigo()"
                         title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
-                    <button class="btn" onclick="convertirCodigoATexto()"
+                    <button class="btn text-btn" onclick="convertirCodigoATexto()"
                         title="Convertir el Morse introducido a texto">Convertir a Texto</button>
-                    <button disabled class="btn" id="playSoundButton" onclick="reproducirSonido()"
-                        title="Reproducir sonido"><i class="bi bi-volume-up"></i></button>
-                    <button id="copyButton" class="btn" title="Copiar resultado a tu portapapeles">Copiar
+                    <br>
+                    <button id="copyButton" class="btn-secondary" title="Copiar resultado a tu portapapeles">Copiar
                         resultado</button>
                 </div>
             </div>
@@ -76,9 +80,46 @@
             <p id="resultado" class="result">No has convertido nada aún ┑(￣Д ￣)┍</p>
 
         </div>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span id="closeModalButton" title="Cerrar" class="close"><i class="bi bi-x-circle"></i></span>
+                <h3>Establecer tema del codificador</h3>
+                <p>Escoge un tema de tu gusto para personalizar el aspecto de Crucial Codificator.</p>
+
+                <div class="btn-container">
+                    <button class="btn-theme" data-theme="light-coral" title="Coral Claro">
+                        <span style="color: var(--light-coral);"><i class="bi bi-circle-fill"></i></span> Coral
+                        Claro</button>
+                    <button class="btn-theme" data-theme="majorelle-blue" title="Azul Majorelle">
+                        <span style="color: var(--majorelle-blue);"><i class="bi bi-circle-fill"></i></span> Azul
+                        Majorelle</button>
+                    <button class="btn-theme" data-theme="ut-orange" title="Naranja UT">
+                        <span style="color: var(--ut-orange);"><i class="bi bi-circle-fill"></i></span> Naranja
+                        UT</button>
+                    <button class="btn-theme" data-theme="mikado-yellow" title="Amarillo Mikado">
+                        <span style="color: var(--mikado-yellow);"><i class="bi bi-circle-fill"></i></span> Amarillo
+                        Mikado</button>
+                    <button class="btn-theme" data-theme="viridian" title="Verde Viridiana">
+                        <span style="color: var(--viridian);"><i class="bi bi-circle-fill"></i></span> Verde
+                        Viridiana</button>
+                    <button class="btn-theme" data-theme="amethyst" title="Amatista">
+                        <span style="color: var(--amethyst);"><i class="bi bi-circle-fill"></i></span> Amatista</button>
+                    <button class="btn-theme" data-theme="walnut-brown" title="Marrón Nuez">
+                        <span style="color: var(--walnut-brown);"><i class="bi bi-circle-fill"></i></span> Marrón
+                        Nuez</button>
+                    <button class="btn-theme" data-theme="charcoal" title="Gris Carbón">
+                        <span style="color: var(--charcoal);"><i class="bi bi-circle-fill"></i></span> Gris
+                        Carbón</button>
+                    <br>
+                    Tema actual: <span><i class="bi bi-circle-fill"></i> N/A</span>
+                </div>
+            </div>
+        </div>
+        <div id="overlay" class="overlay"></div>
     </main>
 
-    <section id="dictionary">
+    <section id="diccionario-morse">
         <h2 class="section-title">
             <i class="bi bi-table"></i> Diccionario Morse (Universal)
         </h2>
@@ -86,8 +127,14 @@
         <article>
             <table class="container">
                 <tr>
-                    <th>Caracter</th>
-                    <th>Código Morse</th>
+                    <th>
+                        <h5>
+                            Caracter
+                        </h5>
+                    </th>
+                    <th>
+                        <h5>Código Morse</h5>
+                    </th>
                 </tr>
                 <tr>
                     <td>A</td>
@@ -270,6 +317,7 @@
 
     <script type="text/javascript" src="assets/js/script.js"></script>
     <script type="text/javascript" src="assets/js/morse_decoder.js"></script>
+    <script type="text/javascript" src="assets/js/theme_handler.js"></script>
 </body>
 
 </html>
