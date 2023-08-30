@@ -1,5 +1,6 @@
-# crucial-codificator
 
-Codifica un mensaje a código Morse o texto según desees!
+# Crucial Codificator
 
-![](image.png)
+Codifica texto a morse y viceversa de forma instantánea y fácil!
+
+![Captura de Crucial Codificator](image.png)
