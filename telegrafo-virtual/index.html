@@ -6,7 +6,7 @@
     <!-- Necesidades básicas de la página
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
     <meta charset="UTF-8">
-    <title>Telégrafo Virtual</title>
+    <title>Crucial Codificator | Telégrafo Virtual</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -29,10 +29,15 @@
 
     <div class="telegraph">
         <div class="key" id="key"></div>
-        <textarea autofocus required id="message" placeholder="Ingresa tu mensaje en texto"></textarea>
-        <button id="playButton">Reproducir</button>
-        <button id="dotButton">Punto</button>
-        <button id="dashButton">Línea</button>
+        <textarea id="message" placeholder="Escribe tu mensaje en morse..."></textarea>
+        <button id="playButton">
+          <i class="bi bi-play-fill"></i> Reproducir</button>
+        <button onclick="recargarPagina()">
+          <i class="bi bi-arrow-clockwise"></i> Reiniciar</button>
+        <button id="dotButton">
+          <i class="bi bi-dot"></i> Punto</button>
+        <button id="dashButton">
+          <i class="bi bi-dash"></i> Línea</button>
     </div>
     <script src="../assets/js/virtual_telegraph.js"></script>
 </body>
