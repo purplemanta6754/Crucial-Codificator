@@ -5,10 +5,16 @@
 
     <!-- Necesidades básicas de la página
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Crucial Codificator | Conversor de Código Morse</title>
-    <meta name="description" content="Codifica texto a morse y viceversa de forma instantánea.">
+    <meta name="description" content="Codifica texto a morse y viceversa de forma instantánea, fácil y sencilla.">
     <meta name="author" content="Crucial Software">
+    <meta property="og:image" content="assets/img/share-img.webp">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Crucial Codificator">
+    <meta name="twitter:description"
+        content="Codifica texto a morse y viceversa de forma instantánea, fácil y sencilla.">
+    <meta name="twitter:image" content="assets/img/share-img.webp">
 
     <!-- Metas móviles específicos
   ––––––––––––––––––––––––––––––––––––––––––––––––––-->
@@ -28,11 +34,12 @@
 
 <body class="animate__animated animate__fadeIn">
     <noscript>
-        <h1>
+        <h3>
             <i class="bi bi-exclamation-triangle"></i>
             Tu navegador no admite o no es compatible con JavaScript
-        </h1>
-        <p>Verifica que este navegador tenga habilitado JavaScript y vuelve a intentarlo.</p>
+        </h3>
+        <p>Para utilizar las funcionalidades completas de este sitio es necesario tener JavaScript habilitado. Aquí están las <a href="https://www.enable-javascript.com/es/">
+            instrucciones para habilitar JavaScript en tu navegador web</a></p>
     </noscript>
 
     <nav class="navbar" id="nav">
@@ -60,7 +67,7 @@
             <i class="bi bi-arrow-left-right"></i> Conversor de Código Morse
         </h1>
 
-        <div class="container modal-container">
+        <div class="container conv-container">
             <div>
                 <textarea required autofocus id="entrada" class="input"
                     placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
@@ -111,9 +118,8 @@
                     <button class="btn-theme" data-theme="charcoal" title="Gris Carbón">
                         <span style="color: var(--charcoal);"><i class="bi bi-circle-fill"></i></span> Gris
                         Carbón</button>
-                    <br>
-                    Tema actual: <span><i class="bi bi-circle-fill"></i> N/A</span>
                 </div>
+                Tema actual: <span id="currentThemeName"><i class="bi bi-circle-fill"></i> N/A</span>
             </div>
         </div>
         <div id="overlay" class="overlay"></div>
