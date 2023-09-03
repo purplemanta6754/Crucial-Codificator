@@ -97,7 +97,7 @@ td {
 }
 
 noscript {
-    background-color: var(--accent-color);
+    background-color: var(--mikado-yellow);
     color: var(--primary-color);
     height: 100%;
     position: fixed;
@@ -107,6 +107,12 @@ noscript {
     z-index: 110;
     justify-content: center;
     padding: 10px 20px;
+    text-align: center;
+    align-items: center;
+}
+
+noscript h3, p {
+    margin: 15px;
 }
 
 textarea {
@@ -263,7 +269,7 @@ th:first-child {
     resize: vertical;
 }
 
-.modal-container {
+.conv-container {
     background-color: var(--bgcolor-b);
     display: block;
     padding: 20px;
@@ -363,6 +369,10 @@ th:first-child {
 }
 
 @media screen and (min-width: 655px) {
+    textarea {
+        height: 170px;
+    }
+
     .n-btn-desktop {
         display: unset;
         transition: 0.3s;
@@ -375,14 +385,18 @@ th:first-child {
 }
 
 @media screen and (min-width: 695px) {
-    .modal-container {
+    textarea {
+        height: 170px;
+    }
+
+    .conv-container {
         max-width: 65vw;
         transition: 0.3s;
     }
 }
 
 @media screen and (min-width: 920px) {
-    .modal-container {
+    .conv-container {
         max-width: 50vw;
         transition: 0.3s;
     }
@@ -394,14 +408,14 @@ th:first-child {
 }
 
 @media screen and (min-width: 1380px) {
-    .modal-container {
+    .conv-container {
         max-width: 55vw;
         transition: 0.3s;
     }
 }
 
 @media screen and (min-width: 1475px) {
-    .modal-container {
+    .conv-container {
         max-width: 40vw;
         transition: 0.3s;
     }
