@@ -5,8 +5,8 @@ function abrirTelegrafo() {
     const screenHeight = window.screen.height;
 
     // Definir las dimensiones de la ventana emergente
-    const windowWidth = 1400;
-    const windowHeight = 700;
+    const windowWidth = 400;
+    const windowHeight = 285;
 
     // Calcular las coordenadas x e y para centrar la ventana emergente en la pantalla
     const windowX = (screenWidth - windowWidth) / 2;
