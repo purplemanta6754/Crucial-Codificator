@@ -1,123 +1,146 @@
-// Codificación de texto a morse y morse a texto
-
-const diccionarioMorse = {
-    'A': '.-', 'B': '-...', 'C': '-.-.', 'D': '-..', 'E': '.',
-    'F': '..-.', 'G': '--.', 'H': '....', 'I': '..', 'J': '.---',
-    'K': '-.-', 'L': '.-..', 'M': '--', 'N': '-.', 'O': '---',
-    'P': '.--.', 'Q': '--.-', 'R': '.-.', 'S': '...', 'T': '-',
-    'U': '..-', 'V': '...-', 'W': '.--', 'X': '-..-', 'Y': '-.--',
-    'Z': '--..', '0': '-----', '1': '.----', '2': '..---',
-    '3': '...--', '4': '....-', '5': '.....', '6': '-....',
-    '7': '--...', '8': '---..', '9': '----.', '#': '#', '¿': '..-.-',
-    '¡': '--...-', '?': '..--..', '!': '-.-.--', '"': '.-..-.',
-    '(': '.-.--.', ')': '-.--.-', '&': '.-...', ':': '---...',
-    ',': '--..--', ';': '-.-.-.', '=': '-...-', '+': '.-.-.',
-    '-': '-....-', '_': '..--.-', '$': '...-..-', '@': '.--.-.',
-    'Á': '.--.-', 'É': '..-..', 'Í': '..', 'Ó': '---.', 'Ú': '..--',
-    'Ñ': '--.--', 'Ü': '..--',
-    '/': '/'
+const morseDictionary = {
+  A: ".-",
+  B: "-...",
+  C: "-.-.",
+  D: "-..",
+  E: ".",
+  F: "..-.",
+  G: "--.",
+  H: "....",
+  I: "..",
+  J: ".---",
+  K: "-.-",
+  L: ".-..",
+  M: "--",
+  N: "-.",
+  O: "---",
+  P: ".--.",
+  Q: "--.-",
+  R: ".-.",
+  S: "...",
+  T: "-",
+  U: "..-",
+  V: "...-",
+  W: ".--",
+  X: "-..-",
+  Y: "-.--",
+  Z: "--..",
+  0: "-----",
+  1: ".----",
+  2: "..---",
+  3: "...--",
+  4: "....-",
+  5: ".....",
+  6: "-....",
+  7: "--...",
+  8: "---..",
+  9: "----.",
+  "#": "#",
+  "¿": "..-.-",
+  "¡": "--...-",
+  "?": "..--..",
+  "!": "-.-.--",
+  "\xbf": ".-..-.",
+  "(": ".-.--.",
+  ")": "-.--.-",
+  "&": ".-...",
+  ":": "---...",
+  ",": "--..--",
+  ";": "-.-.-.",
+  "=": "-...-",
+  "+": ".-.-.",
+  "-": "-....-",
+  _: "..--.-",
+  $: "...-..-",
+  "@": ".--.-.",
+  Á: ".--.-",
+  É: "..-..",
+  Í: "..",
+  Ó: "---.",
+  Ú: "..--",
+  Ñ: "--.--",
+  Ü: "..--",
+  "/": "\u0020\u0020\u0020",
+  "\u0020": "/",
 };
 
+function encodeTextToMorse() {
+  const inputText = document
+    .getElementById("inputTextArea")
+    .value.toUpperCase();
+  let resultText = "";
 
-
-function convertirTextoACodigo() {
-    const entrada = document.getElementById('entrada').value.toUpperCase();
-    let resultado = '';
-
-    for (let i = 0; i < entrada.length; i++) {
-        const caracter = entrada[i];
-        if (caracter === ' ') {
-            resultado += ' ';
-        } else if (caracter in diccionarioMorse) {
-            resultado += diccionarioMorse[caracter] + ' ';
-        }
+  if (!inputText) {
+    resultText = "Error: No text to be encoded.";
+  } else {
+    for (let i = 0; i < inputText.length; i++) {
+      const character = inputText[i];
+      if (character === " ") {
+        resultText += " ";
+      } else if (character in morseDictionary) {
+        resultText += morseDictionary[character] + " ";
+      } else {
+        resultText = `Error: The character '${character}' cannot be encoded to Morse.`;
+        break;
+      }
     }
+  }
 
-    document.getElementById('resultado').textContent = resultado;
+  document.getElementById("resultText").textContent = resultText;
 }
 
-function convertirCodigoATexto() {
-    const entrada = document.getElementById('entrada').value;
-    const codigoMorseArray = entrada.split(' ');
-    let resultado = '';
+function encodeMorseToText() {
+  const inputText = document.getElementById("inputTextArea").value;
+  const morseTextArray = inputText.split(" ");
+  let resultText = "";
 
-    for (let i = 0; i < codigoMorseArray.length; i++) {
-        const código = codigoMorseArray[i];
-        for (let letra in diccionarioMorse) {
-            if (diccionarioMorse[letra] === código) {
-                resultado += letra;
-                break;
-            }
+  if (!inputText) {
+    resultText = "Error: No Morse code to decode.";
+  } else {
+    for (let i = 0; i < morseTextArray.length; i++) {
+      const code = morseTextArray[i];
+      let found = false;
+      for (let letra in morseDictionary) {
+        if (morseDictionary[letra] === code) {
+          resultText += letra;
+          found = true;
+          break;
         }
-        if (i < codigoMorseArray.length - 1) {
-            resultado += ' ';
-        }
+      }
+      if (!found) {
+        resultText = `Error: The code '${code}' cannot be decoded to text.`;
+        break;
+      }
+      if (i < morseTextArray.length - 1) {
+        resultText += " ";
+      }
     }
+  }
 
-    document.getElementById('resultado').textContent = resultado;
+  document.getElementById("resultText").textContent = resultText;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const copyButton = document.getElementById('copyButton');
-    copyButton.addEventListener('click', function () {
-        const variableValueElement = document.getElementById('resultado');
-        const tempInput = document.createElement('input');
-        tempInput.value = variableValueElement.innerText;
-        document.body.appendChild(tempInput);
+const copyButtonText =
+  '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">\
+  <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>\
+</svg>&nbsp;&nbsp;\
+Copy result';
 
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999);
+document.addEventListener("DOMContentLoaded", function () {
+  const copyButton = document.getElementById("copyButton");
+  copyButton.addEventListener("click", function () {
+    const resultText = document.getElementById("resultText").textContent;
 
-        document.execCommand('copy');
-
-        document.body.removeChild(tempInput);
-
-        copyButton.innerHTML = '¡Copiado!';
+    navigator.clipboard.writeText(resultText).then(
+      function () {
+        copyButton.innerHTML = "Successfully copied!";
         setTimeout(function () {
-            copyButton.innerHTML = 'Copiar resultado';
+          copyButton.innerHTML = copyButtonText;
         }, 2000);
-    });
+      },
+      function (err) {
+        console.error("Error copying text: ", err);
+      }
+    );
+  });
 });
-
-// Reproducción de código morse
-
-const dotDuration = 200; // Duración en milisegundos para el punto
-const dashDuration = 500; // Duración en milisegundos para el guion
-const spaceDuration = 200; // Duración en milisegundos para el espacio entre caracteres
-const charSpaceDuration = 500; // Duración en milisegundos para el espacio entre caracteres
-
-function reproducirSonido() {
-    const entrada = document.getElementById('entrada').value.toUpperCase();
-
-    for (let i = 0; i < entrada.length; i++) {
-        const caracter = entrada[i];
-        if (caracter === '.') {
-            reproducirPunto();
-        } else if (caracter === '-') {
-            reproducirGuion();
-        } else if (caracter === ' ') {
-            pausa(spaceDuration);
-        }
-        if (i < entrada.length - 1 && entrada[i + 1] !== ' ') {
-            pausa(charSpaceDuration);
-        }
-    }
-}
-
-function reproducirPunto() {
-    const soundDot = document.getElementById('soundDot');
-    soundDot.currentTime = 0;
-    soundDot.play();
-    pausa(dotDuration);
-}
-
-function reproducirGuion() {
-    const soundDash = document.getElementById('soundDash');
-    soundDash.currentTime = 0;
-    soundDash.play();
-    pausa(dashDuration);
-}
-
-function pausa(duration) {
-    return new Promise(resolve => setTimeout(resolve, duration));
-}

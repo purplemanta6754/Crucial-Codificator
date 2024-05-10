@@ -1,329 +1,305 @@
 <!DOCTYPE html>
-<html type="text/html" lang="es">
+<html type="text/html" lang="en">
+  <head>
+    <!-- Basic Page Needs
+      ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Crucial Codificator | Morse Code Converter</title>
+    <meta name="title" content="Crucial Codificator | Morse Code Converter" />
+    <meta
+      name="description"
+      content="Encode text to Morse and vice versa instantly, easily and simply..."
+    />
 
-<head>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://purplemanta6754.github.io/Crucial-Codificator/"
+    />
+    <meta
+      property="og:title"
+      content="Crucial Codificator | Morse Code Converter"
+    />
+    <meta
+      property="og:description"
+      content="Encode text to Morse and vice versa instantly, easily and simply..."
+    />
+    <meta
+      property="og:image"
+      content="https://purplemanta6754.github.io/Crucial-Codificator/assets/img/share-img.webp"
+    />
 
-    <!-- Necesidades básicas de la página
-  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Crucial Codificator | Conversor de Código Morse</title>
-    <meta name="description" content="Codifica texto a morse y viceversa de forma instantánea, fácil y sencilla.">
-    <meta name="author" content="Crucial Software">
-    <meta property="og:image" content="assets/img/share-img.webp">
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="Crucial Codificator">
-    <meta name="twitter:description"
-        content="Codifica texto a morse y viceversa de forma instantánea, fácil y sencilla.">
-    <meta name="twitter:image" content="assets/img/share-img.webp">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://purplemanta6754.github.io/Crucial-Codificator/"
+    />
+    <meta
+      property="twitter:title"
+      content="Crucial Codificator | Morse Code Converter"
+    />
+    <meta
+      property="twitter:description"
+      content="Encode text to Morse and vice versa instantly, easily and simply..."
+    />
+    <meta
+      property="twitter:image"
+      content="https://purplemanta6754.github.io/Crucial-Codificator/assets/img/share-img.webp"
+    />
 
-    <!-- Metas móviles específicos
-  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!-- Mobile Specific Metas
+      ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- CSS
-  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-        type="text/css">
-    <link rel="stylesheet" href="assets/css/styles.css" type="text/css">
-
+      ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link rel="stylesheet" href="assets/css/skeleton.css" type="text/css" />
     <!-- Favicon
-  ––––––––––––––––––––––––––––––––––––––––––––––––––-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+      ––––––––––––––––––––––––––––––––––––––––––––––––––-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+  </head>
 
-</head>
-
-<body class="animate__animated animate__fadeIn">
+  <body>
     <noscript>
-        <h3>
-            <i class="bi bi-exclamation-triangle"></i>
-            Tu navegador no admite o no es compatible con JavaScript
-        </h3>
-        <p>Para utilizar las funcionalidades completas de este sitio es necesario tener JavaScript habilitado. Aquí están las <a href="https://www.enable-javascript.com/es/">
-            instrucciones para habilitar JavaScript en tu navegador web</a></p>
+      <div class="container" style="text-align: center">
+        <h3>JavaScript is disabled</h3>
+        <p>
+          To enjoy the full functionality of this site, please enable JavaScript
+          in your browser.
+        </p>
+        <a
+          class="button button-primary"
+          target="_blank"
+          href="https://www.enable-javascript.com/"
+          aria-label="Enable JavaScript in your browser"
+          >Enable JavaScript</a
+        >
+        <span style="margin: 0 10px">or</span>
+        <a
+          class="button"
+          target="_blank"
+          href="https://browser-update.org/en/update-browser.html"
+          aria-label="Update your browser"
+          >Update your browser</a
+        >
+      </div>
     </noscript>
 
-    <nav class="navbar" id="nav">
-        <div class="logo">
-            <a href="index.html"><img class="logo" src="assets/img/logo.png" alt="Crucial Codificator"></a>
-        </div>
-        <a class="navbar-btn n-btn-desktop" href="#diccionario-morse" title="Diccionario Morse">Diccionario Morse</a>
-        <a class="navbar-btn n-btn-desktop" href="#faq" title="Preguntas frecuentes">FAQ</a>
-        <a class="navbar-btn n-btn-desktop" href="javascript:void(0);" onclick="abrirTelegrafo()"
-            title="Telegrafo Virtual">Telegrafo
-            Virtual</a>
-        <a class="navbar-btn n-btn-responsive" href="#diccionario-morse" title="Diccionario Morse"><i
-                class="bi bi-table"></i></a>
-        <a class="navbar-btn n-btn-responsive" href="#faq" title="Preguntas frecuentes"><i
-                class="bi bi-patch-question"></i></a>
-        <a class="navbar-btn n-btn-responsive" href="javascript:void(0);" onclick="abrirTelegrafo()"
-            title="Telegrafo Virtual"><i class="bi bi-soundwave"></i></a>
-        <a class="navbar-btn" href="javascript:void(0);" id="openModalLink" title="Cambiar tema"><i
-                class="bi bi-palette2"></i></a>
+    <nav class="navbar nav-show" id="navbar">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="#">
+              <img class="logo" src="assets/img/brand-icon.svg" alt="" />
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" id="telegraphModalTrigger"
+              >Virtual Telegraph</a
+            >
+          </li>
+          <li><a href="javascript:void(0)">Morse Dictionary</a></li>
+          <li><a href="javascript:void(0)">FAQ</a></li>
+          <li><a href="javascript:void(0)" id="openModalLink">Themes</a></li>
+          <li class="icon">
+            <a href="javascript:void(0);" onclick="toggleMobileNav()">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-list"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"
+                /></svg
+            ></a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <main>
-
-        <h1 class="title">
-            <i class="bi bi-arrow-left-right"></i> Conversor de Código Morse
-        </h1>
-
-        <div class="container conv-container">
-            <div>
-                <textarea required autofocus id="entrada" class="input"
-                    placeholder="Ingresa el texto o el código Morse aquí..."></textarea>
-                <div class="btn-container">
-                    <button class="btn morse-btn" onclick="convertirTextoACodigo()"
-                        title="Convertir el texto introducido a código Morse">Convertir a Morse</button>
-                    <button class="btn text-btn" onclick="convertirCodigoATexto()"
-                        title="Convertir el Morse introducido a texto">Convertir a Texto</button>
-                    <br>
-                    <button id="copyButton" class="btn-secondary" title="Copiar resultado a tu portapapeles">Copiar
-                        resultado</button>
-                </div>
-            </div>
-
-            <h4 class="result-label">Tu resultado</h4>
-
-            <p id="resultado" class="result">No has convertido nada aún ┑(￣Д ￣)┍</p>
-
+      <div class="container">
+        <div class="converter">
+          <h1>Morse Code Converter</h1>
+          <textarea
+            id="inputTextArea"
+            placeholder="Enter the text or Morse code here..."
+            autofocus
+            class="converter-input"
+            required
+          ></textarea>
+          <div class="button-container">
+            <button
+              title="Convert input to Morse code"
+              class="button-primary morse-btn"
+              onclick="encodeTextToMorse()"
+            >
+              Convert to Morse
+            </button>
+            <button
+              title="Convert Morse input to text"
+              class="button text-btn"
+              onclick="encodeMorseToText()"
+            >
+              Convert to Text
+            </button>
+          </div>
+          <h2 class="result-label">Your result:</h2>
+          <p class="result-text" id="resultText">
+            You haven't converted anything yet ┑(￣Д ￣)┍
+          </p>
+          <button
+            class="button"
+            title="Copy result to clipboard"
+            id="copyButton"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-copy"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"
+              /></svg
+            >&nbsp;&nbsp; Copy result
+          </button>
         </div>
-
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <span id="closeModalButton" title="Cerrar" class="close"><i class="bi bi-x-circle"></i></span>
-                <h3>Establecer tema del codificador</h3>
-                <p>Escoge un tema de tu gusto para personalizar el aspecto de Crucial Codificator.</p>
-
-                <div class="btn-container">
-                    <button class="btn-theme" data-theme="light-coral" title="Coral Claro">
-                        <span style="color: var(--light-coral);"><i class="bi bi-circle-fill"></i></span> Coral
-                        Claro</button>
-                    <button class="btn-theme" data-theme="majorelle-blue" title="Azul Majorelle">
-                        <span style="color: var(--majorelle-blue);"><i class="bi bi-circle-fill"></i></span> Azul
-                        Majorelle</button>
-                    <button class="btn-theme" data-theme="ut-orange" title="Naranja UT">
-                        <span style="color: var(--ut-orange);"><i class="bi bi-circle-fill"></i></span> Naranja
-                        UT</button>
-                    <button class="btn-theme" data-theme="mikado-yellow" title="Amarillo Mikado">
-                        <span style="color: var(--mikado-yellow);"><i class="bi bi-circle-fill"></i></span> Amarillo
-                        Mikado</button>
-                    <button class="btn-theme" data-theme="viridian" title="Verde Viridiana">
-                        <span style="color: var(--viridian);"><i class="bi bi-circle-fill"></i></span> Verde
-                        Viridiana</button>
-                    <button class="btn-theme" data-theme="amethyst" title="Amatista">
-                        <span style="color: var(--amethyst);"><i class="bi bi-circle-fill"></i></span> Amatista</button>
-                    <button class="btn-theme" data-theme="walnut-brown" title="Marrón Nuez">
-                        <span style="color: var(--walnut-brown);"><i class="bi bi-circle-fill"></i></span> Marrón
-                        Nuez</button>
-                    <button class="btn-theme" data-theme="charcoal" title="Gris Carbón">
-                        <span style="color: var(--charcoal);"><i class="bi bi-circle-fill"></i></span> Gris
-                        Carbón</button>
-                </div>
-                Tema actual: <span id="currentThemeName"><i class="bi bi-circle-fill"></i> N/A</span>
-            </div>
-        </div>
-        <div id="overlay" class="overlay"></div>
+      </div>
     </main>
 
-    <section id="diccionario-morse">
-        <h2 class="section-title">
-            <i class="bi bi-table"></i> Diccionario Morse (Universal)
-        </h2>
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModalButton" title="Cerrar" class="close"
+          ><i class="bi bi-x-circle"></i
+        ></span>
+        <h3>Establecer tema del codificador</h3>
+        <p>
+          Escoge un tema de tu gusto para personalizar el aspecto de Crucial
+          Codificator.
+        </p>
 
-        <article>
-            <table class="container">
-                <tr>
-                    <th>
-                        <h5>
-                            Caracter
-                        </h5>
-                    </th>
-                    <th>
-                        <h5>Código Morse</h5>
-                    </th>
-                </tr>
-                <tr>
-                    <td>A</td>
-                    <td>.-</td>
-                </tr>
-                <tr>
-                    <td>B</td>
-                    <td>-...</td>
-                </tr>
-                <tr>
-                    <td>C</td>
-                    <td>-.-.</td>
-                </tr>
-                <tr>
-                    <td>D</td>
-                    <td>-..</td>
-                </tr>
-                <tr>
-                    <td>E</td>
-                    <td>.</td>
-                </tr>
-                <tr>
-                    <td>F</td>
-                    <td>..-.</td>
-                </tr>
-                <tr>
-                    <td>G</td>
-                    <td>--.</td>
-                </tr>
-                <tr>
-                    <td>H</td>
-                    <td>....</td>
-                </tr>
-                <tr>
-                    <td>I</td>
-                    <td>..</td>
-                </tr>
-                <tr>
-                    <td>J</td>
-                    <td>.---</td>
-                </tr>
-                <tr>
-                    <td>K</td>
-                    <td>-.-</td>
-                </tr>
-                <tr>
-                    <td>L</td>
-                    <td>.-..</td>
-                </tr>
-                <tr>
-                    <td>M</td>
-                    <td>--</td>
-                </tr>
-                <tr>
-                    <td>N</td>
-                    <td>-.</td>
-                </tr>
-                <tr>
-                    <td>O</td>
-                    <td>---</td>
-                </tr>
-                <tr>
-                    <td>P</td>
-                    <td>.--.</td>
-                </tr>
-                <tr>
-                    <td>Q</td>
-                    <td>--.-</td>
-                </tr>
-                <tr>
-                    <td>R</td>
-                    <td>.-.</td>
-                </tr>
-                <tr>
-                    <td>S</td>
-                    <td>...</td>
-                </tr>
-                <tr>
-                    <td>T</td>
-                    <td>-</td>
-                </tr>
-                <tr>
-                    <td>U</td>
-                    <td>..-</td>
-                </tr>
-                <tr>
-                    <td>V</td>
-                    <td>...-</td>
-                </tr>
-                <tr>
-                    <td>W</td>
-                    <td>.--</td>
-                </tr>
-                <tr>
-                    <td>X</td>
-                    <td>-..-</td>
-                </tr>
-                <tr>
-                    <td>Y</td>
-                    <td>-.--</td>
-                </tr>
-                <tr>
-                    <td>Z</td>
-                    <td>--..</td>
-                </tr>
-                <tr>
-                    <td>0</td>
-                    <td>----</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>.---</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>..---</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>...--</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>....-</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>.....</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>-....</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>--...</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>---..</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>----.</td>
-                </tr>
-            </table>
-        </article>
-    </section>
+        <div class="btn-container">
+          <button
+            class="btn-theme"
+            data-theme="light-coral"
+            title="Coral Claro"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-circle-fill"
+              style="color: var(--light-coral)"
+              viewBox="0 0 16 16"
+            >
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Coral Claro
+          </button>
+          <button
+            class="btn-theme"
+            data-theme="majorelle-blue"
+            title="Azul Majorelle"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-circle-fill"
+              style="color: var(--majorelle-blue)"
+              viewBox="0 0 16 16"
+            >
+              <circle cx="8" cy="8" r="8" />
+            </svg>
+            Azul Majorelle
+          </button>
+          <button class="btn-theme" data-theme="ut-orange" title="Naranja UT">
+            <span style="color: var(--ut-orange)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Naranja UT
+          </button>
+          <button
+            class="btn-theme"
+            data-theme="mikado-yellow"
+            title="Amarillo Mikado"
+          >
+            <span style="color: var(--mikado-yellow)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Amarillo Mikado
+          </button>
+          <button
+            class="btn-theme"
+            data-theme="viridian"
+            title="Verde Viridiana"
+          >
+            <span style="color: var(--viridian)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Verde Viridiana
+          </button>
+          <button class="btn-theme" data-theme="amethyst" title="Amatista">
+            <span style="color: var(--amethyst)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Amatista
+          </button>
+          <button
+            class="btn-theme"
+            data-theme="walnut-brown"
+            title="Marrón Nuez"
+          >
+            <span style="color: var(--walnut-brown)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Marrón Nuez
+          </button>
+          <button class="btn-theme" data-theme="charcoal" title="Gris Carbón">
+            <span style="color: var(--charcoal)"
+              ><i class="bi bi-circle-fill"></i
+            ></span>
+            Gris Carbón
+          </button>
+        </div>
+        Tema actual:<i class="bi bi-circle-fill"></i>
+        <span id="currentThemeName"></span>
+      </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
 
-    <section id="faq">
-        <h1 class="section-title">
-            <i class="bi bi-patch-question"></i> Preguntas frecuentes
-        </h1>
-
-        <article class="container">
-            <h3>¿Cómo convertir texto a código morse?</h3>
-
-            <p>Ingresa en el área de arriba el texto que desear convertir a código morse y haz click en el botón
-                "Convertir a Morse". De forma instantánea se codificará tu texto a código morse.</p>
-        </article>
-
-        <article class="container">
-            <h3>¿Qué es el código morse?</h3>
-
-            <p>Desarrollado en 1835 por el pintor e inventor Samuel Finley Breese, es un sistema de representación de
-                letras y números mediante señales emitidas de forma intermitente.
-        </article>
-
-        <article class="container">
-            <h3>¿Por qué es importante el código morse?</h3>
-
-            <p>Hoy en día el código morse se utiliza por personas con discapacidades (como parálisis o accidentes
-                cerebrovasculares), así como también por estaciones de radio.</p>
-        </article>
-
-    </section>
-
-    <audio type="audio/mp3" id="soundDot" src="assets/snds/soundDot.mp3"></audio>
-    <audio type="audio/mp3" id="soundDash" src="assets/snds/soundDash.mp3"></audio>
-
-    <script type="text/javascript" src="assets/js/script.js"></script>
+    <audio
+      type="audio/mp3"
+      id="soundDot"
+      src="assets/snds/soundDot.mp3"
+    ></audio>
+    <audio
+      type="audio/mp3"
+      id="soundDash"
+      src="assets/snds/soundDash.mp3"
+    ></audio>
+    <script type="text/javascript" src="assets/js/navbar.js"></script>
+    <script type="text/javascript" src="assets/js/modals.js"></script>
     <script type="text/javascript" src="assets/js/morse_decoder.js"></script>
     <script type="text/javascript" src="assets/js/theme_handler.js"></script>
-</body>
-
+    <script
+      type="text/javascript"
+      src="assets/js/virtual_telegraph.js"
+    ></script>
+  </body>
 </html>

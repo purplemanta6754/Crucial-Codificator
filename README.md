@@ -1,6 +1,6 @@
 
 # Crucial Codificator
 
-Codifica texto a morse y viceversa de forma instantánea y fácil!
+Encode text to Morse and vice versa instantly and easily!
 
 ![Captura de Crucial Codificator](image.png)

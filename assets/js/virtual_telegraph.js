@@ -1,84 +1,99 @@
-const keyInput = document.getElementById('key');
-const messageInput = document.getElementById('message');
-const playButton = document.getElementById('playButton');
-const dotButton = document.getElementById('dotButton');
-const dashButton = document.getElementById('dashButton');
+const DOT_SOUND_PATH = "../assets/snds/soundDot.mp3";
+const DASH_SOUND_PATH = "../assets/snds/soundDash.mp3";
 
-let currentSymbol = '.'; // Por defecto, iniciamos con un punto
+const keyInput = document.getElementById("key");
+const messageInput = document.getElementById("message");
+const playButton = document.getElementById("playButton");
+const dotButton = document.getElementById("dotButton");
+const dashButton = document.getElementById("dashButton");
 
-dotButton.addEventListener('click', () => {
-    currentSymbol = '.';
-    messageInput.value += currentSymbol;
-    playTelegraphSound(currentSymbol);
+function openTelegraph() {
+  const width = window.screen.width;
+  const height = window.screen.height;
+  window.open(
+    "telegrafo-virtual/index.html",
+    "telegraphWindow",
+    `width=400, height=285, top=${(height - 285) / 2}, left=${
+      (width - 400) / 2
+    }`
+  );
+  console.log(
+    "Se ha abierto una nueva ventana para mostrar el telegrafo virtual"
+  );
+}
+
+let currentSymbol = "."; // By default, we begin with a dot
+
+dotButton.addEventListener("click", () => {
+  currentSymbol = ".";
+  messageInput.value += currentSymbol;
+  playSound(currentSymbol);
 });
 
-dashButton.addEventListener('click', () => {
-    currentSymbol = '-';
-    messageInput.value += currentSymbol;
-    playTelegraphSound(currentSymbol);
+dashButton.addEventListener("click", () => {
+  currentSymbol = "-";
+  messageInput.value += currentSymbol;
+  playSound(currentSymbol);
 });
 
-playButton.addEventListener('click', () => {
-    const morseCode = messageInput.value;
-    playMorseCodeSound(morseCode);
+playButton.addEventListener("click", () => {
+  const morseCode = messageInput.value;
+  playMorseCodeSound(morseCode);
 });
 
-// Agregar un evento 'change' al elemento de entrada de clave
-keyInput.addEventListener('change', () => {
-    updateKey();
-});
+// Adding a "change" event to the key input element
+keyInput.addEventListener("change", updateKey);
 
-// Función para actualizar la clave y restablecer el mensaje y símbolo actual
+// Function for updating the key and resetting the current message and symbol
 function updateKey() {
-    const newKey = keyInput.value;
-    currentSymbol = '.';
-    messageInput.value = '';
-    playTelegraphSound(currentSymbol);
+  const newKey = keyInput.value;
+  currentSymbol = ".";
+  messageInput.value = "";
+  playSound(currentSymbol);
 }
 
-// Restaurar la clave y el mensaje al cargar la página
-window.addEventListener('load', () => {
-    updateKey();
-});
+// Restore key and message on page load
+window.addEventListener("load", updateKey);
 
-// Función para reproducir sonidos pregrabados de puntos y rayas
-function playTelegraphSound(symbol) {
-    const soundPath = symbol === '.' ? '../assets/snds/soundDot.mp3' : '../assets/snds/soundDash.mp3';
-    const sound = new Audio(soundPath);
-    sound.play();
+// Function to play pre-recorded sounds of dots and dashes
+function playSound(symbol) {
+  const soundPath = symbol === "." ? DOT_SOUND_PATH : DASH_SOUND_PATH;
+  const sound = new Audio(soundPath);
+  sound.play();
 }
 
-// Función para reproducir sonidos pregrabados de código Morse
+// Function for playing pre-recorded Morse code sounds
 function playMorseCodeSound(code) {
-    const timeUnit = 600; // Tiempo en milisegundos para una unidad de tiempo básica
-    const dashDuration = 1200; // Duración en milisegundos del sonido del guion
-    const silenceDuration = 4; // Duración en milisegundos del silencio entre sonidos
+  const timeUnit = 600; // Tiempo en milisegundos para una unidad de tiempo básica
+  const dashDuration = 1200; // Duración en milisegundos del sonido del guion
+  const silenceDuration = 4; // Duración en milisegundos del silencio entre sonidos
 
-    const morseSounds = [];
+  const morseSounds = [];
 
-    code.split('').forEach((char) => {
-        if (char === '.') {
-            morseSounds.push({ symbol: '.', duration: timeUnit });
-        } else if (char === '-') {
-            morseSounds.push({ symbol: '-', duration: dashDuration });
-        }
-    });
-
-    // Función recursiva para reproducir los sonidos con el silencio entre ellos
-    function playNextSound(index) {
-        if (index < morseSounds.length) {
-            const sound = morseSounds[index];
-            playTelegraphSound(sound.symbol);
-
-            setTimeout(() => {
-                playNextSound(index + 1);
-            }, sound.duration + silenceDuration);
-        }
+  code.split("").forEach((char) => {
+    if (char === ".") {
+      morseSounds.push({
+        symbol: ".",
+        duration: timeUnit,
+      });
+    } else if (char === "-") {
+      morseSounds.push({
+        symbol: "-",
+        duration: dashDuration,
+      });
     }
+  });
 
-    playNextSound(0);
-}
+  // Recursive function to play sounds with silence in between them
+  function playNextSound(index) {
+    if (index < morseSounds.length) {
+      const sound = morseSounds[index];
+      playSound(sound.symbol);
 
-function recargarPagina () {
-    location.reload()
+      setTimeout(() => {
+        playNextSound(index + 1);
+      }, sound.duration + silenceDuration);
+    }
+  }
+  playNextSound(0);
 }
